@@ -15,7 +15,7 @@ class UserExpenseController extends \BaseController {
 	public function index($user_id)
 	{
 		$user = User::findOrFail($user_id);
-		return $user->expenses->toJson();
+		return $user->expenses;
 	}
 
 
@@ -26,7 +26,6 @@ class UserExpenseController extends \BaseController {
 	 */
 	public function create($user_id)
 	{
-		//return "In Create".$id;
 		return View::make('expenses.create')->with(['user'=>$user_id]);
 	}
 
@@ -62,6 +61,21 @@ class UserExpenseController extends \BaseController {
 	public function show($user_id,$id)
 	{
 		return Expense::findOrFail($id);
+	}
+	/**
+	 * Updates an existing expense
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function update($user_id,$id){
+		$this->expense = Expense::find($id);
+		$input = Input::only('name','amount','description','occured_at');
+		if(!$this->expense->fill($input)->isValid()){
+			// Error
+			return $input;
+		}
+		$this->expense->save();
+		return $this->expense;
 	}
 
 

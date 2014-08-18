@@ -15,4 +15,6 @@ Route::get('/','UserController@index');
 
 Route::resource('users', 'UserController');
 
+Route::post('users/{user_id}/expenses/{id}/update','UserExpenseController@update');
+
 Route::resource('users.expenses', 'UserExpenseController');
