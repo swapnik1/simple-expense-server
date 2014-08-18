@@ -8,7 +8,8 @@ class Expense extends \Eloquent {
 	
 	public static $rules = [
 		'name' => 'required,min:2',
-		'amount' => 'required'
+		'amount' => 'required',
+		'occured_at' => 'required'
 	];
 	
 	public $errors;

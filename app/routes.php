@@ -15,4 +15,8 @@ Route::get('/','UserController@index');
 
 Route::resource('users', 'UserController');
 
-Route::resource('users/{id}/expenses', 'ExpenseController');
+Route::resource('users.{$user}.expenses', 'ExpenseController');
+
+Route::resource('photos.comments', 'PhotoCommentController');
+
+Route::resource('users.expenses', 'UserExpenseController');

@@ -38,7 +38,7 @@ class UserController extends \BaseController {
 		$input = Input::all();
 		if(!$this->user->fill($input)->isValid()){
 			// Invalid user
-			return null;
+			return $this->user->errors;
 		}
 
 		// hash password
