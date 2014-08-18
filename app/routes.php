@@ -13,8 +13,10 @@
 
 Route::get('/','UserController@index');
 
-Route::resource('users', 'UserController');
+Route::resource('users', 'UserController',['only'=>['index','create','store','show']]);
 
 Route::post('users/{user_id}/expenses/{id}/update','UserExpenseController@update');
 
-Route::resource('users.expenses', 'UserExpenseController');
+Route::post('users/{user_id}/expenses/{id}/delete','UserExpenseController@delete');
+
+Route::resource('users.expenses', 'UserExpenseController',['only'=>['index','create','store','show']]);
