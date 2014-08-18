@@ -9,7 +9,7 @@ class ExpenseController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		return Expense::all();
 	}
 
 
@@ -20,7 +20,7 @@ class ExpenseController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('expenses.create');
 	}
 
 
@@ -29,9 +29,20 @@ class ExpenseController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store($user_id)
 	{
-		//
+		$user = User::findOrFail($user_id);
+		
+		$input = Input::all();
+		
+		if(!$this->expense->fill($input)->isValid()){
+			// Error
+			return null;
+		}
+		
+		$user->expenses()->save($this->expense);
+		
+		return $this->expense;
 	}
 
 
@@ -43,31 +54,7 @@ class ExpenseController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
-	}
-
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
+		return Expense::findOrFail($id);
 	}
 
 
@@ -79,7 +66,7 @@ class ExpenseController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		Expense::destroy($id);
 	}
 
 
