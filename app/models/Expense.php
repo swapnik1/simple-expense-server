@@ -4,10 +4,10 @@ class Expense extends \Eloquent {
 
 	public $table = 'expenses';
 	
-	protected $fillable = ['name','amount','description'];
+	protected $fillable = ['name','amount','description','occured_at'];
 	
 	public static $rules = [
-		'name' => 'required,min:2',
+		'name' => 'required|min:2',
 		'amount' => 'required',
 		'occured_at' => 'required'
 	];

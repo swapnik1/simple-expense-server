@@ -33,7 +33,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	public $errors;
 	
 	public function expenses(){
-		return $this->hasMany('Expense');
+		return $this->belongsToMany('Expense')->withTimestamps();
 	}
 	
 	public function getAuthPassword(){

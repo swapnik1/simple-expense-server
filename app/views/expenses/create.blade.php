@@ -1,6 +1,7 @@
 @extends('layouts.master')
-
-{{ Form::open(['route' => 'users.{$user}.expense.store']) }}
+<?php echo '<pre>'.$user.'</pre>'; ?>
+@section('content')
+{{ Form::open(array('action' => array('UserExpenseController@store', $user))) }}
 	<div>
 		{{ Form::label('name', 'Name :') }}
 		{{ Form::text('name') }}
@@ -21,3 +22,5 @@
 		{{ Form::submit('Add Expense') }}
 	</div>
 {{ Form::close() }}
+
+@stop
