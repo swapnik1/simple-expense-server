@@ -4,12 +4,12 @@ class Expense extends \Eloquent {
 
 	public $table = 'expenses';
 	
-	protected $fillable = ['name','amount','description','occured_at'];
+	protected $fillable = ['name','amount','description','occurred_at'];
 	
 	public static $rules = [
 		'name' => 'required|min:2',
 		'amount' => 'required',
-		'occured_at' => 'required'
+		'occurred_at' => 'required'
 	];
 	
 	public $errors;

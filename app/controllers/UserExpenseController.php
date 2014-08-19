@@ -39,7 +39,7 @@ class UserExpenseController extends \BaseController {
 	{
 		$user = User::findOrFail($user_id);
 		
-		$input = Input::only('name','amount','description','occured_at');
+		$input = Input::only('name','amount','description','occurred_at');
 
 		if(!$this->expense->fill($input)->isValid()){
 			// Error
@@ -69,7 +69,7 @@ class UserExpenseController extends \BaseController {
 	 */
 	public function update($user_id,$id){
 		$this->expense = Expense::find($id);
-		$input = Input::only('name','amount','description','occured_at');
+		$input = Input::only('name','amount','description','occurred_at');
 		if(!$this->expense->fill($input)->isValid()){
 			// Error
 			return $input;

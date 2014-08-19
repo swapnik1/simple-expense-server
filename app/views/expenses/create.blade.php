@@ -1,7 +1,7 @@
 @extends('layouts.master')
 <?php echo '<pre>'.$user.'</pre>'; ?>
 @section('content')
-{{ Form::open(array('action' => array('UserExpenseController@store', $user))) }}
+{{ Form::open(array('action' => array('UserExpenseConrtroller@store', $user))) }}
 	<div>
 		{{ Form::label('name', 'Name :') }}
 		{{ Form::text('name') }}
@@ -15,8 +15,8 @@
 		{{ Form::text('description') }}
 	</div>
 	<div>
-		{{ Form::label('occured_at', 'Date :') }}
-		{{ Form::text('occured_at') }}
+		{{ Form::label('occurred_at', 'Date :') }}
+		{{ Form::text('occurred_at') }}
 	</div>
 	<div>
 		{{ Form::submit('Add Expense') }}

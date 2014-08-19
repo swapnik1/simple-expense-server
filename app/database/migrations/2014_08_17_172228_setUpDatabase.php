@@ -22,7 +22,7 @@ class SetUpDatabase extends Migration {
 			$table->increments('id');
 			$table->string('name');
 			$table->double('amount');
-			$table->date('occured_at');
+			$table->date('occurred_at');
 			$table->text('description');
 			$table->timestamps();
 		});
