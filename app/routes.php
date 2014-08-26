@@ -17,6 +17,6 @@ Route::resource('users', 'UserController',['only'=>['index','create','store','sh
 
 Route::post('users/{user_id}/expenses/{id}/update','UserExpenseController@update');
 
-Route::get('users/{user_id}/expenses/{id}/delete','UserExpenseController@destroy');
+Route::post('users/{user_id}/expenses/{id}/delete','UserExpenseController@destroy');
 
 Route::resource('users.expenses', 'UserExpenseController',['only'=>['index','create','store','show']]);
